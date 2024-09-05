@@ -1,72 +1,57 @@
-# first-tutorial
-# Create a Character
+# Agent Maze: Blocks
 
-## Introduction @unplugged
+## Step 1
 
-First create a character to star in your game!
-
-![Image description](https://raw.githubusercontent.com/microsoft/pxt-tutorial-sample/master/images/enemies.gif)
-
-## Step One
-
-Use the ``||custom:make random background||`` block to add a background color.
+Get a ``||loops: forever||`` loop and drag it into the workspace. 
 
 ```blocks
-// @highlight
-custom.makeRandomBackground()
+loops.forever(function () {
+	
+})
+
+// Included below to force the block to appear for the student
+agent.teleportToPlayer()
+ player.onChat("pyramid", function (size)){ 
+    let size = 0 
+      
+    } 
+
 ```
 
-## Step Two
-
-Create a sprite with the ``||variables:set mySprite to||`` block.
+## Step 2
+Get an ``||logic:if then||`` conditional that evaluates a ``||agent:detect||``command, set it to **block** and **forward**, then add a ``||agent:turn||`` **left** block within the ``||logic: if then||``  conditional.
 
 ```blocks
-custom.makeRandomBackground()
-// @highlight
-let mySprite = sprites.create(img`
-    . . . . . . . . . . b 5 b . . .
-    . . . . . . . . . b 5 b . . . .
-    . . . . . . . . . b c . . . . .
-    . . . . . . b b b b b b . . . .
-    . . . . . b b 5 5 5 5 5 b . . .
-    . . . . b b 5 d 1 f 5 5 d f . .
-    . . . . b 5 5 1 f f 5 d 4 c . .
-    . . . . b 5 5 d f b d d 4 4 . .
-    b d d d b b d 5 5 5 4 4 4 4 4 b
-    b b d 5 5 5 b 5 5 4 4 4 4 4 b .
-    b d c 5 5 5 5 d 5 5 5 5 5 b . .
-    c d d c d 5 5 b 5 5 5 5 5 5 b .
-    c b d d c c b 5 5 5 5 5 5 5 b .
-    . c d d d d d d 5 5 5 5 5 d b .
-    . . c b d d d d d 5 5 5 b b . .
-    . . . c c c c c c c c b b . . .
-`, SpriteKind.Player)
+if (agent.detect(AgentDetection.Block, FORWARD)) {
+        agent.turn(LEFT_TURN)
+    }
 ```
 
-## Step Three
+## Step 3
 
-Add movement with the ``||controller:move mySprite with buttons||`` block.
+Click the **(+)** sign to add ``||logic: else||`` to the ``||logic:if then||`` conditional, then put in an ``||agent:agent move||`` **forward by 1** block.
+
+**NOTE:** The full statement then becomes an **if-else statement.
 
 ```blocks
-custom.makeRandomBackground()
-let mySprite = sprites.create(img`
-    . . . . . . . . . . b 5 b . . .
-    . . . . . . . . . b 5 b . . . .
-    . . . . . . . . . b c . . . . .
-    . . . . . . b b b b b b . . . .
-    . . . . . b b 5 5 5 5 5 b . . .
-    . . . . b b 5 d 1 f 5 5 d f . .
-    . . . . b 5 5 1 f f 5 d 4 c . .
-    . . . . b 5 5 d f b d d 4 4 . .
-    b d d d b b d 5 5 5 4 4 4 4 4 b
-    b b d 5 5 5 b 5 5 4 4 4 4 4 b .
-    b d c 5 5 5 5 d 5 5 5 5 5 b . .
-    c d d c d 5 5 b 5 5 5 5 5 5 b .
-    c b d d c c b 5 5 5 5 5 5 5 b .
-    . c d d d d d d 5 5 5 5 5 d b .
-    . . c b d d d d d 5 5 5 b b . .
-    . . . c c c c c c c c b b . . .
-`, SpriteKind.Player)
-// @highlight
-controller.moveSprite(mySprite)
+if (agent.detect(AgentDetection.Block, FORWARD)) {
+        agent.turn(LEFT_TURN)
+    } else {
+        agent.move(FORWARD, 1)
+    }
 ```
+
+## Step 4
+
+Place the ``||logic:if else||`` statement within the ``||loops:forever||`` loop—so that these steps will continue until you stop them. 
+
+```blocks
+loops.forever(function () {
+    if (agent.detect(AgentDetection.Block, FORWARD)) {
+        agent.turn(LEFT_TURN)
+    } else {
+        agent.move(FORWARD, 1)
+    })
+```
+## Step 5
+Press the **Play** button and try out your code in Minecraft. 
