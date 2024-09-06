@@ -14,7 +14,8 @@
         "3.md",
         "seeYou/s01.md",
         "4.md",
-        "5.md"
+        "5.md",
+        "_locales/zh-CN/5.md"
     ],
     "testFiles": [
         "test.ts"
