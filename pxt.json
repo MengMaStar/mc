@@ -13,7 +13,8 @@
         "2.md",
         "3.md",
         "seeYou/s01.md",
-        "4.md"
+        "4.md",
+        "5.md"
     ],
     "testFiles": [
         "test.ts"
