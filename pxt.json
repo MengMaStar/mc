@@ -12,7 +12,8 @@
         "first-tutorial.md",
         "2.md",
         "3.md",
-        "seeYou/s01.md"
+        "seeYou/s01.md",
+        "4.md"
     ],
     "testFiles": [
         "test.ts"
